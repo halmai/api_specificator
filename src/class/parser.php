@@ -1,6 +1,6 @@
 <?php
 	
-	class parser {
+	class Parser {
 		protected $lead;
 		protected $type;
 		protected $outBuffer;
