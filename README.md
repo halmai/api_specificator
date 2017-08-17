@@ -1,4 +1,4 @@
-# API Specificator
+# API Specificator v0.2
 
 API Specificator is a command line tool written in PHP to preprocess swagger.yaml files. 
 
