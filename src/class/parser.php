@@ -16,7 +16,7 @@
 			if ($this->eol === NULL) {
 				$this->eol = "\n"; // todo: should be trimmed from the end of $line
 			}
-			$re = '/^(\s*)(request_template):.*$/';
+			$re = '/^(\s*)(schemaTemplate):.*$/';
 			if (preg_match($re, $line, $matches)) {
 				$this->lead = $matches[1];
 				$this->type = $matches[2];
@@ -28,8 +28,8 @@
 		public function process() {
 			$this->outBuffer = [];
 			switch ($this->type) {
-				case 'request_template':
-					$this->processRequestTemplate();
+				case 'schemaTemplate':
+					$this->processSchemaTemplate();
 					break;
 				
 				default:
@@ -46,7 +46,7 @@
 			return $this->lead. str_repeat($this->tab, $num);
 		}
 		
-		protected function processRequestTemplate() {
+		protected function processSchemaTemplate() {
 			$regExp = '/^\s*{\s*$/';
 			$this->in->getMatchingLineOrFail($regExp);
 			
@@ -62,7 +62,7 @@
 					break;
 				}
 				
-				$property = $this->processRequestTemplateLine($trim);
+				$property = $this->processSchemaTemplateLine($trim);
 				$properties[] = $property;
 			} while (!$isDone);
 			
@@ -145,7 +145,7 @@
 			];
 		}
 		
-		protected function processRequestTemplateLine($line) {
+		protected function processSchemaTemplateLine($line) {
 			$isRequired = FALSE;
 			if (substr($line, 0, 1) === '*') {
 				$isRequired = TRUE;
