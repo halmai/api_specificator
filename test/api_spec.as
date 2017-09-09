@@ -25,4 +25,9 @@ paths:
 			responses:
 				200:
 					description: Registration was successful
+					schemaTemplate:
+						{
+							*result: "ERROR"
+							error_code: "ERROR__DATE_OUT_OF_INTERVAL"
+						}
 					
