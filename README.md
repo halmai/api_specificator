@@ -96,7 +96,6 @@ There are a lot of things to work on:
 
 - produce output file instead of stdout
 - work with multi-line descriptions
-- adding ability to describe API responses as well, not just requests
 - working with arrays
 - macro handling
 - etc.
