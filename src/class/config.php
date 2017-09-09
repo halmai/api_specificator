@@ -4,7 +4,7 @@
 			'mode'            => 'default',   // 'help' => display help and die(), 'default' => normal conversion
 			'input_filename'  => NULL,
 			'output_filename' => NULL,        // NULL means stdout
-		
+			'output_indent'   => '  ',        // how to indent the generated output
 		];
 		protected $args;
 		
@@ -23,6 +23,8 @@
 					$this->config['mode'] = 'help';
 				} elseif (in_array($arg, ['-o', '--output'])) {
 					$this->config['output_filename'] = $this->getNextArg();
+				} elseif (in_array($arg, ['-d', '--indent'])) {
+					$this->config['output_indent'] = $this->getNextArg();
 				} elseif (substr($arg, 0, 1) !== '-') {
 					if ($this->config['input_filename'] === NULL) {
 						$this->config['input_filename'] = $arg;
