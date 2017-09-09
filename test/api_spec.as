@@ -1,4 +1,7 @@
+swagger: "2.0"
 info:
+	version: "1.0.0"
+	title: "API Specificator Sample"
 paths: 
 	/auth/account:
 		post: 
@@ -19,19 +22,7 @@ paths:
 						*password: "abc123"
 						*displayed_name: "Johny D. Good"
 					}
-				responses:
-					200: short description
-						description: Registration was successful
-						{
-							result: "OK"
-							
-						}
-					404: short description
-						description: if the email address is valid then the `is_existing` field tells whether the email address is already in use or not.
-						{
-							result: "OK",
-							is_existing: true
-						}
-						
-						
+			responses:
+				200:
+					description: Registration was successful
 					
